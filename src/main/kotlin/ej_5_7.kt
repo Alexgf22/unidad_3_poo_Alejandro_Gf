@@ -4,17 +4,17 @@ class Coche(
     var modelo: String,
     var numero_caballos: Int,
     var numero_puertas: Int,
-    var matricula: String
+    private var matricula: String
 )  {
 
-    fun cambioColor(color: String): Boolean {
+    fun cambioColor(color: String): String {
         this.color = color
-        return true
+        return this.color
     }
 
 
     override fun toString(): String {
-        return super.toString()
+        return "El coche de color: $color, marca: $marca, modelo: $modelo, numero de caballos: $numero_caballos, numero de puertas $numero_puertas y matricula: $matricula "
     }
 
 
@@ -25,11 +25,19 @@ class Coche(
 
 fun main()  {
 
-    var coche1 = Coche("Azul","Renault","Captur",100,5,"1234 MBD")
-    var coche2 = Coche("Rojo","Seat","Ibiza",90,5,"7683 LZX")
-    var coche3 = Coche("Verde","Audi","Q5",150,5,"5738 KZS")
-    var coche4 = Coche("Amarillo","Ford","Mustang",250,5,"8537 LMN")
+    val coche1 = Coche("Azul","Renault","Captur",100,5,"1234 MBD")
+    val coche2 = Coche("Rojo","Seat","Ibiza",90,5,"7683 LZX")
+    val coche3 = Coche("Verde","Audi","Q5",150,5,"5738 KZS")
+    val coche4 = Coche("Amarillo","Ford","Mustang",250,5,"8537 LMN")
 
     coche1.cambioColor("Lila")
-    print(coche1.color)
+    println("El coche1 cambia a color: ${coche1.color}")
+
+    coche2.cambioColor("Negro")
+    println("El coche2 cambia a color: ${coche2.color}")
+
+    println(coche1.toString())
+    println(coche2.toString())
+    println(coche3.toString())
+    println(coche4.toString())
 }
