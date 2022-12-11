@@ -1,23 +1,25 @@
-/*class Cuenta(
+class Cuenta(
     var numero_cuenta: String,
-    var saldo: Int
+    private var saldo: Int
 
 ) {
 
-    fun consultar_saldo(saldo) {
+    fun consultar_saldo(): Int {
         return saldo
     }
 
-    fun recibir_abonos() {
-
+    fun recibir_abonos(cantidadRecibida: Int): String {
+        saldo += cantidadRecibida
+        return "Has recibido: $cantidadRecibida € y ahora tu saldo es de $saldo"
     }
 
-    fun realizar_pagos() {
-
+    fun realizar_pagos(cantidadPagar: Int): String {
+        saldo -= cantidadPagar
+        return "Has pagado: $cantidadPagar y ahora tu saldo es de $saldo"
     }
 
 
-}*/
+}
 
 
 /*
@@ -36,3 +38,10 @@ class Persona(
 
 
 }*/
+
+
+fun main() {
+
+
+
+}
