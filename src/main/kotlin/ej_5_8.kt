@@ -1,17 +1,17 @@
 class Tiempo(
     var hora: Int,
-    var minuto: Int = 0,
-    var segundo: Int = 0
+    var minuto: Int,
+    var segundo: Int
 ) {
 
-    /*constructor(hora: Int,minuto: Int): this(hora,minuto) {
+    constructor(hora: Int,minuto: Int): this(hora,minuto,0) {
         this.hora = hora
         this.minuto = minuto
     }
 
-    constructor(hora: Int): this(hora) {
+    constructor(hora: Int): this(hora,0,0) {
         this.hora = hora
-    }*/
+    }
 
 
 
