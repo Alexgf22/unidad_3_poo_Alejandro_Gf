@@ -42,18 +42,17 @@ class Persona(
                 contadorCuentas += 1
             }
         }
-
         contadorCuentas += 1
         if(contadorCuentas <= 3) {
             val cuentaNueva = Cuenta(numero_cuenta_nuevo,saldo_nuevo)
             cuentas.add(cuentaNueva)
         }
         else {
-            resultado = "No se pueden añadir mas de 3 cuentas por persona"
+            resultado = "No se pueden crear mas de 3 cuentas por persona"
             return resultado
         }
 
-        resultado = "La cuenta: $numero_cuenta_nuevo, con: $saldo_nuevo euros"
+        resultado = "La nueva cuenta: $numero_cuenta_nuevo, con: $saldo_nuevo euros"
         return resultado
 
     }
@@ -93,7 +92,7 @@ fun main() {
     println("El saldo de la cuenta2 es ahora de: ${cuenta2.consultarSaldo()}")
     println(persona1.comprobarMoroso())
 
-    persona1.añadirCuenta("ES108582842",200)
-    persona1.añadirCuenta("ES105478854",400)
+    println(persona1.añadirCuenta("ES108582842",200))
+    println(persona1.añadirCuenta("ES105478854",400))
     println(persona1.toString())
 }
