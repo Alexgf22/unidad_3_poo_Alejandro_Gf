@@ -1,3 +1,6 @@
+/**
+ * Aqui creo la clase libro donde se comprueba la calificacion del libro que este en el rango correspondiente
+ */
 open class Libro(
     var titulo: String,
     var autor: String,
@@ -20,7 +23,9 @@ open class Libro(
 
 }
 
-
+/**
+ * Aquí creo la clase ConjuntoLibros donde incluye una lista con varios libros de tipo Libro
+ */
 open class ConjuntoLibros(
     var libros: MutableList<Libro> = mutableListOf()
 
@@ -110,8 +115,10 @@ fun main() {
     println("El libro con mayor calificacion es: ${conjuntoLibro1.libroMayorCalificacion()}")
     println("El libro con menor calificacion es: ${conjuntoLibro1.libroMenorCalificacion()}")
 
-    //println(conjuntoLibro1.eliminarLibroPorTitulo("El alquimista"))
-    //conjuntoLibro1.eliminarLibroPorAutor("Roald Dahl")
+    /* Aquí la funcion de eliminar el libro por titulo no me funciona y esta hecha de la misma forma que
+    * la de eliminar libro por autor */
+    //conjuntoLibro1.eliminarLibroPorTitulo("El alquimista")
+    conjuntoLibro1.eliminarLibroPorAutor("Roald Dahl")
     //conjuntoLibro1.eliminarLibroPorTitulo("Un mundo feliz")
 
     val otroLibro = Libro("Ulises","James Joyce",900,9)

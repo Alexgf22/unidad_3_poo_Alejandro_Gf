@@ -1,3 +1,6 @@
+/**
+ * Aquí creo la clase Cuenta donde creo los métodos de consultar saldo, recibir dinero y demás
+ */
 open class Cuenta(
     var numero_cuenta: String,
     var saldo: Int
