@@ -44,14 +44,27 @@ open class ConjuntoLibros(
     }
 
     fun libroMayorCalificacion(): Libro {
-
-        libros.sortBy { calificacion }
-        return libros[2]
+        var mayorCalificacion = 0
+        var libroResultante = Libro("Harry Potter","J.K Rowling",256,8)
+        for(libro in libros) {
+            if(libro.calificacion > mayorCalificacion) {
+                mayorCalificacion = libro.calificacion
+                libroResultante = libro
+            }
+        }
+        return libroResultante
     }
 
     fun libroMenorCalificacion() : Libro {
-        libros.sortBy { calificacion }
-        return libros[0]
+        var menorCalificacion = 10
+        var libroResultante = Libro("El señor de los Anillos","J.R.R Tolkien",500,8)
+        for(libro in libros) {
+            if(libro.calificacion < menorCalificacion) {
+                menorCalificacion = libro.calificacion
+                libroResultante = libro
+            }
+        }
+        return libroResultante
     }
 
     override fun toString(): String {
@@ -63,12 +76,12 @@ open class ConjuntoLibros(
 
 
 fun main() {
-    val primerLibro = Libro("El alquimista","Paulo Coelho",192,5)
-    val segundoLibro = Libro("Charlie y la fabrica de chocolate","Roald Dahl",208,8)
+    val primerLibro = Libro("El alquimista","Paulo Coelho",192,9)
+    val segundoLibro = Libro("Charlie y la fabrica de chocolate","Roald Dahl",208,7)
 
     val conjuntoLibro1 = ConjuntoLibros(mutableListOf(primerLibro,segundoLibro))
 
-    val tercerLibro = Libro("Un mundo feliz","ALDOUS HUXLEY",256,3)
+    val tercerLibro = Libro("Un mundo feliz","ALDOUS HUXLEY",256,8)
 
     conjuntoLibro1.añadirLibro(tercerLibro)
 

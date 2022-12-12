@@ -5,12 +5,14 @@ class Tiempo(
 ) {
 
     constructor(hora: Int,minuto: Int): this(hora,minuto,0) {
-        this.hora = hora
+        //this.hora = hora
         this.minuto = minuto
     }
 
     constructor(hora: Int): this(hora,0,0) {
-        this.hora = hora
+        //this.hora = hora
+        this.minuto = minuto
+        this.segundo = segundo
     }
 
 
@@ -25,26 +27,23 @@ class Tiempo(
 
 fun main() {
     print("Introduce la hora: ")
-    var hora = readln().toInt()
+    val hora = readln().toInt()
+
 
     print("Introduce los minutos: ")
-    var minutos = readln().toInt()
+    val minutos = readln().toInt()
 
-    /*if (minutos == "") {
-        var minutosAentero = minutos.toInt()
-        minutosAentero = 0
-    }*/
 
     print("Introduce los segundos: ")
-    var segundos = readln().toInt()
+    val segundos = readln().toInt()
 
-    /*if (segundos == "") {
-        var segundosAentero = segundos.toInt()
-        segundosAentero = 0
-    }*/
 
-    var tiempo1 = Tiempo(hora,minutos,segundos)
+    val tiempo1 = Tiempo(hora)
+    val tiempo2 = Tiempo(hora,minutos)
+    val tiempo3 = Tiempo(hora,minutos,segundos)
 
-    print(tiempo1.toString())
+    println(tiempo1.toString())
+    println(tiempo2.toString())
+    println(tiempo3.toString())
 
 }
