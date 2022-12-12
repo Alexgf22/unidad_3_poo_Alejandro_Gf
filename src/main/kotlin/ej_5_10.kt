@@ -1,4 +1,4 @@
-/*class Libro(
+open class Libro(
     var titulo: String,
     var autor: String,
     var numero_paginas: Int,
@@ -6,38 +6,53 @@
 
 ) {
 
+    fun comprobarCalificacion(): Boolean {
+        return calificacion in 0..10
+    }
+
+    override fun toString(): String {
+        return "El libro de titulo: $titulo, autor: $autor, con: $numero_paginas paginas y calificacion: $calificacion"
+    }
+
+}
+
+
+open class ConjuntoLibros(
+    var libros: MutableList<Libro> = mutableListOf()
+
+): Libro(titulo = "Psicologia Oscura","Steven Turner", numero_paginas = 204, calificacion = 7){
+
+    fun añadirLibro(tituloDelLibro: String,autorDelLibro: String,numeroDePags: Int,laCalificacion: Int) {
+        var libroNuevo = Libro(tituloDelLibro,autorDelLibro,numeroDePags,laCalificacion)
+        if(libroNuevo !in libros) {
+            libros.add(libroNuevo)
+        }
+    }
+
+    fun eliminarLibroPorTitulo(titulo: String) {
+        this.titulo = titulo
+        var libroAeliminar = Libro(titulo, autor, numero_paginas, calificacion)
+        libros.remove(libroAeliminar)
+
+    }
+
+    fun eliminarLibroPorAutor(autor: String) {
+        this.autor = autor
+        var libroAeliminar2 = Libro(titulo, autor, numero_paginas, calificacion)
+        libros.remove(libroAeliminar2)
+
+
+    }
 
 
 }
 
 
-class ConjuntoLibros(
-    var libros: List<Libro>
-
-) {
-
-    fun añadir_libro(libro_nuevo) {
-
-        if(libro_nuevo not in libros) {
-            libros.add(libro_nuevo)
-        }
-    }
-
-    fun eliminar_libro() {
-
-
-    }
-
-
-}*/
-
-
-/*
 fun main() {
     var primer_libro = Libro("El alquimista","Paulo Coelho",192,7)
     var segundo_libro = Libro("Charlie y la fábrica de chocolate","Roald Dahl",208,8)
 
-    ConjuntoLibros.añadir_libro(primer_libro)
-    ConjuntoLibros.añadir_libro(segundo_libro)
+    var conjuntoLibro1 = ConjuntoLibros(mutableListOf(primer_libro,segundo_libro))
+
+
 }
-*/

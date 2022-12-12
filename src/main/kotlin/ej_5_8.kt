@@ -30,8 +30,18 @@ fun main() {
     print("Introduce los minutos: ")
     var minutos = readln().toInt()
 
+    /*if (minutos == "") {
+        var minutosAentero = minutos.toInt()
+        minutosAentero = 0
+    }*/
+
     print("Introduce los segundos: ")
     var segundos = readln().toInt()
+
+    /*if (segundos == "") {
+        var segundosAentero = segundos.toInt()
+        segundosAentero = 0
+    }*/
 
     var tiempo1 = Tiempo(hora,minutos,segundos)
 
