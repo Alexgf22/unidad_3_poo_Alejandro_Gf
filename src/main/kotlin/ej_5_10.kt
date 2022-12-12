@@ -11,7 +11,7 @@ open class Libro(
     }
 
     override fun toString(): String {
-        return "El libro de titulo: $titulo, autor: $autor, con: $numero_paginas paginas y calificacion: $calificacion"
+        return "El titulo del libro es: $titulo, del autor: $autor, con: $numero_paginas paginas y calificacion: $calificacion"
     }
 
 }
@@ -20,10 +20,9 @@ open class Libro(
 open class ConjuntoLibros(
     var libros: MutableList<Libro> = mutableListOf()
 
-): Libro(titulo = "Psicologia Oscura","Steven Turner", numero_paginas = 204, calificacion = 7){
+): Libro(titulo = "Psicologia Oscura", autor = "Steven Turner", numero_paginas = 204, calificacion = 7){
 
-    fun añadirLibro(tituloDelLibro: String,autorDelLibro: String,numeroDePags: Int,laCalificacion: Int) {
-        var libroNuevo = Libro(tituloDelLibro,autorDelLibro,numeroDePags,laCalificacion)
+    fun añadirLibro(libroNuevo: Libro) {
         if(libroNuevo !in libros) {
             libros.add(libroNuevo)
         }
@@ -31,17 +30,32 @@ open class ConjuntoLibros(
 
     fun eliminarLibroPorTitulo(titulo: String) {
         this.titulo = titulo
-        var libroAeliminar = Libro(titulo, autor, numero_paginas, calificacion)
+        val libroAeliminar = Libro(titulo, autor, numero_paginas, calificacion)
         libros.remove(libroAeliminar)
 
     }
 
     fun eliminarLibroPorAutor(autor: String) {
         this.autor = autor
-        var libroAeliminar2 = Libro(titulo, autor, numero_paginas, calificacion)
+        val libroAeliminar2 = Libro(titulo, autor, numero_paginas, calificacion)
         libros.remove(libroAeliminar2)
 
 
+    }
+
+    fun libroMayorCalificacion(): Libro {
+
+        libros.sortBy { calificacion }
+        return libros[2]
+    }
+
+    fun libroMenorCalificacion() : Libro {
+        libros.sortBy { calificacion }
+        return libros[0]
+    }
+
+    override fun toString(): String {
+        return "Los libros guardados son: $libros"
     }
 
 
@@ -49,10 +63,30 @@ open class ConjuntoLibros(
 
 
 fun main() {
-    var primer_libro = Libro("El alquimista","Paulo Coelho",192,7)
-    var segundo_libro = Libro("Charlie y la fábrica de chocolate","Roald Dahl",208,8)
+    val primerLibro = Libro("El alquimista","Paulo Coelho",192,5)
+    val segundoLibro = Libro("Charlie y la fabrica de chocolate","Roald Dahl",208,8)
 
-    var conjuntoLibro1 = ConjuntoLibros(mutableListOf(primer_libro,segundo_libro))
+    val conjuntoLibro1 = ConjuntoLibros(mutableListOf(primerLibro,segundoLibro))
+
+    val tercerLibro = Libro("Un mundo feliz","ALDOUS HUXLEY",256,3)
+
+    conjuntoLibro1.añadirLibro(tercerLibro)
+
+    println(conjuntoLibro1.toString())
+
+    println("El libro con mayor calificacion es: ${conjuntoLibro1.libroMayorCalificacion()}")
+    println("El libro con menor calificacion es: ${conjuntoLibro1.libroMenorCalificacion()}")
+
+    conjuntoLibro1.eliminarLibroPorTitulo("El alquimista")
+    conjuntoLibro1.eliminarLibroPorAutor("Roald Dahl")
+    conjuntoLibro1.eliminarLibroPorTitulo("Un mundo feliz")
+
+    val otroLibro = Libro("Ulises","James Joyce",900,9)
+
+    conjuntoLibro1.añadirLibro(otroLibro)
+
+    println(conjuntoLibro1.toString())
+
 
 
 }
