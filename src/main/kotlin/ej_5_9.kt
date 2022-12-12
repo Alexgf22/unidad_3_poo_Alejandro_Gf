@@ -31,7 +31,7 @@ class Persona(
     var dni: String = "49788654G",
     private var cuentas: MutableList<Cuenta> = mutableListOf()
 
-): Cuenta(numero_cuenta="ES1034734343", saldo =100 ) {
+) {
 
     var contadorCuentas = 0
 

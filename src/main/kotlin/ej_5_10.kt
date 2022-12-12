@@ -6,8 +6,12 @@ open class Libro(
 
 ) {
 
-    fun comprobarCalificacion(): Boolean {
-        return calificacion in 0..10
+    fun comprobarCalificacion(calificacionLibro: Int): Boolean {
+        var resultado = false
+        if(calificacionLibro in 0..10) {
+           resultado = true
+        }
+        return resultado
     }
 
     override fun toString(): String {
@@ -20,7 +24,7 @@ open class Libro(
 open class ConjuntoLibros(
     var libros: MutableList<Libro> = mutableListOf()
 
-): Libro(titulo = "Psicologia Oscura", autor = "Steven Turner", numero_paginas = 204, calificacion = 7){
+) {
 
     fun añadirLibro(libroNuevo: Libro) {
         if(libroNuevo !in libros) {
@@ -28,17 +32,24 @@ open class ConjuntoLibros(
         }
     }
 
-    fun eliminarLibroPorTitulo(titulo: String) {
-        this.titulo = titulo
-        val libroAeliminar = Libro(titulo, autor, numero_paginas, calificacion)
-        libros.remove(libroAeliminar)
+    fun eliminarLibroPorTitulo(tituloLibro: String): Boolean {
+        for(libro in libros) {
+            if(libro.titulo == tituloLibro) {
+                libros.remove(libro)
+            }
+        }
+        return true
+
 
     }
 
-    fun eliminarLibroPorAutor(autor: String) {
-        this.autor = autor
-        val libroAeliminar2 = Libro(titulo, autor, numero_paginas, calificacion)
-        libros.remove(libroAeliminar2)
+    fun eliminarLibroPorAutor(autorLibro: String): Boolean {
+        for(libro in libros) {
+            if(libro.autor == autorLibro) {
+                libros.remove(libro)
+            }
+        }
+        return true
 
 
     }
@@ -86,6 +97,13 @@ fun main() {
     conjuntoLibro1.añadirLibro(tercerLibro)
 
     println(conjuntoLibro1.toString())
+
+    if (primerLibro.comprobarCalificacion(primerLibro.calificacion)) {
+        println("La calificacion esta dentro del rango")
+    }
+    else {
+        println("La calificacion no esta dentro del rango")
+    }
 
     println("El libro con mayor calificacion es: ${conjuntoLibro1.libroMayorCalificacion()}")
     println("El libro con menor calificacion es: ${conjuntoLibro1.libroMenorCalificacion()}")
