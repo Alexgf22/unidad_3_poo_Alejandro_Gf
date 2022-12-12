@@ -36,8 +36,8 @@ fun main()  {
     coche2.cambioColor("Negro")
     println("El coche2 cambia a color: ${coche2.color}")
 
-    println(coche1.toString())
-    println(coche2.toString())
-    println(coche3.toString())
-    println(coche4.toString())
+    println(coche1)
+    println(coche2)
+    println(coche3)
+    println(coche4)
 }

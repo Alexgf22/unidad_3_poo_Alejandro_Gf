@@ -98,7 +98,7 @@ fun main() {
 
     conjuntoLibro1.añadirLibro(tercerLibro)
 
-    println(conjuntoLibro1.toString())
+    println(conjuntoLibro1)
 
     if (primerLibro.comprobarCalificacion(primerLibro.calificacion)) {
         println("La calificacion esta dentro del rango")
@@ -118,7 +118,7 @@ fun main() {
 
     conjuntoLibro1.añadirLibro(otroLibro)
 
-    println(conjuntoLibro1.toString())
+    println(conjuntoLibro1)
 
 
 

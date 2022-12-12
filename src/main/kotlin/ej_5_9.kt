@@ -94,5 +94,5 @@ fun main() {
 
     println(persona1.añadirCuenta("ES108582842",200))
     println(persona1.añadirCuenta("ES105478854",400))
-    println(persona1.toString())
+    println(persona1)
 }

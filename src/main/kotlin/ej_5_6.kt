@@ -29,9 +29,9 @@ fun main() {
     var rectangulo2 = Rectangulo(5,6)
     var rectangulo3 = Rectangulo(3,4)
 
-    println(rectangulo1.toString())
-    println(rectangulo2.toString())
-    println(rectangulo3.toString())
+    println(rectangulo1)
+    println(rectangulo2)
+    println(rectangulo3)
 
 
 }
