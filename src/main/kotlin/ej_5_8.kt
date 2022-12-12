@@ -31,19 +31,27 @@ fun main() {
 
 
     print("Introduce los minutos: ")
-    val minutos = readln().toInt()
+    val minutos = readln()
+    var minutosAint = 0
+    if(minutos != "") {
+        minutosAint = minutos.toInt()
+    }
 
 
     print("Introduce los segundos: ")
-    val segundos = readln().toInt()
+    val segundos = readln()
+    var segundosAint = 0
+    if(segundos != "") {
+        segundosAint = segundos.toInt()
+    }
 
 
     val tiempo1 = Tiempo(hora)
-    val tiempo2 = Tiempo(hora,minutos)
-    val tiempo3 = Tiempo(hora,minutos,segundos)
+    val tiempo2 = Tiempo(hora,minutosAint)
+    val tiempo3 = Tiempo(hora,minutosAint,segundosAint)
 
-    println(tiempo1.toString())
-    println(tiempo2.toString())
-    println(tiempo3.toString())
+    println(tiempo1)
+    println(tiempo2)
+    println(tiempo3)
 
 }
