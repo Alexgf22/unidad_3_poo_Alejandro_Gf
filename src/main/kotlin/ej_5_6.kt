@@ -1,5 +1,9 @@
 // Listo
-
+/**
+ * A continuacion se crea la clase Rectangulo, donde se calcula mediante varios metodos el area y
+ * el perimetro del rectangulo. Ademas se hace un override del toString() para sacar por pantalla
+ * el area y perimetro del rectangulo
+ */
 class Rectangulo(
     var base: Int = 0,
     var altura: Int = 0

@@ -1,3 +1,16 @@
+/**
+ * A continuacion se crea la clase Tiempo donde hay varios atributos que son la hora, los minutos y los segundos.
+ *
+ * @constructor se crea un constructor secundario para que se pueda introducir hora y minutos y no sea necesario
+ * los segundos que por defecto seria 0.
+ *
+ * @constructor se crea otro constructor mas donde se pide unicamente la hora. Los minutos y segundos se establecen
+ * por defecto en 0.
+ *
+ * Despues se hace un override del metodo toString() para sacar por pantalla los atributos de la clase de la manera
+ * que queramos.
+ *
+ */
 class Tiempo(
     var hora: Int,
     var minuto: Int,
@@ -25,6 +38,10 @@ class Tiempo(
 }
 
 
+/**
+ * Pedimos por pantalla la hora, los minutos y los segundos. Si no se introduce los minutos o segundos, lo controlamos
+ * para que se cambie por un 0.
+ */
 fun main() {
     print("Introduce la hora: ")
     val hora = readln().toInt()

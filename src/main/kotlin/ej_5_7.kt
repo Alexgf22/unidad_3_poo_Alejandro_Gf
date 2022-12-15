@@ -1,3 +1,7 @@
+/**
+ * La clase Coche cuenta con varios atributos y un metodo para cambiar el color del coche al que se le
+ * pase por parametro. Tambien el metodo toString() para sacar por pantalla los atributos del coche.
+ */
 class Coche(
     var color: String,
     var marca: String,
@@ -22,7 +26,10 @@ class Coche(
 
 }
 
-
+/**
+ * Se crea varios objectos de coche. Después se hace una llamada al metodo de cambiar el color y se prueba
+ * en varios coches, tambien se cambia el color asignando directamente un color nuevo al color que tenia antes.
+ */
 fun main()  {
 
     val coche1 = Coche("Azul","Renault","Captur",100,5,"1234 MBD")
@@ -35,6 +42,10 @@ fun main()  {
 
     coche2.cambioColor("Negro")
     println("El coche2 cambia a color: ${coche2.color}")
+
+    // También para cambiar de color se puede hacer así directamente
+    coche3.color = "Celeste"
+    println("El coche3 cambia a color: ${coche3.color}")
 
     println(coche1)
     println(coche2)
