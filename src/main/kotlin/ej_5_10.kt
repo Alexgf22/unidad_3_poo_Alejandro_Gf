@@ -1,5 +1,6 @@
 /**
- * Aqui creo la clase libro donde se comprueba la calificacion del libro que este en el rango correspondiente
+ * Aqui creo la clase libro donde se comprueba la calificacion del libro que este en el rango correspondiente y
+ * se llama al metodo toString para sacar por pantalla los atributos de la clase.
  */
 open class Libro(
     var titulo: String,
@@ -24,18 +25,41 @@ open class Libro(
 }
 
 /**
- * Aquí creo la clase ConjuntoLibros donde incluye una lista con varios libros de tipo Libro
+ * Aquí creo la clase ConjuntoLibros donde incluye una lista con varios libros de tipo Libro y el numero de libros.
+ * Después creamos un companion object para indicar que el total de los libros es de 3. Creamos un método llamado
+ * añadirLibro para que pueda incluir en los libros algún libro mientras que no exceda el límite de 3. Otros
+ * métodos para añadir libros por título o autor. Además de dos métodos para sacar el libro con la calificación
+ * más alta y el libro con la calificación más baja y el método toString.
  */
 open class ConjuntoLibros(
-    var libros: MutableList<Libro> = mutableListOf()
+    //private val libros: Array<Libro?> = arrayOfNulls(3)
+    var libros: MutableList<Libro> = mutableListOf(),
+    private var numeroDeLibros: Int = 3
 
-) {
+    ) {
 
+    companion object {
+        const val TOTAL_DE_LIBROS = 3
+
+    }
+
+
+    fun añadirLibro(libro: Libro): Int {
+        if (TOTAL_DE_LIBROS != numeroDeLibros) {
+            libros[numeroDeLibros] = libro
+            numeroDeLibros++
+        }
+        return numeroDeLibros
+    }
+
+    /*
     fun añadirLibro(libroNuevo: Libro) {
         if(libroNuevo !in libros) {
             libros.add(libroNuevo)
         }
     }
+
+     */
 
     fun eliminarLibroPorTitulo(tituloLibro: String): Boolean {
         for(libro in libros) {
@@ -96,12 +120,9 @@ open class ConjuntoLibros(
 fun main() {
     val primerLibro = Libro("El alquimista","Paulo Coelho",192,9)
     val segundoLibro = Libro("Charlie y la fabrica de chocolate","Roald Dahl",208,7)
-
-    val conjuntoLibro1 = ConjuntoLibros(mutableListOf(primerLibro,segundoLibro))
-
     val tercerLibro = Libro("Un mundo feliz","ALDOUS HUXLEY",256,8)
 
-    conjuntoLibro1.añadirLibro(tercerLibro)
+    val conjuntoLibro1 = ConjuntoLibros(mutableListOf(primerLibro,segundoLibro,tercerLibro))
 
     println(conjuntoLibro1)
 
@@ -123,7 +144,7 @@ fun main() {
 
     val otroLibro = Libro("Ulises","James Joyce",900,9)
 
-    conjuntoLibro1.añadirLibro(otroLibro)
+    println(conjuntoLibro1.añadirLibro(otroLibro))
 
     println(conjuntoLibro1)
 
